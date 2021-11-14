@@ -1,0 +1,40 @@
+<html lang="ko"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="~{/layout}"
+>
+<section layout:fragment="content" class="content">
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", ()=>{
+            document.querySelector(".write").addEventListener("click",()=>{
+                alert("클릭됨")
+                location.href = "/readbook/insert";
+            })
+        })
+    </script>
+    <table class="list">
+        <thead>
+        <tr>
+            <th>ISBN</th>
+            <th>TITLE</th>
+            <th>DATE</th>
+            <th>START</th>
+            <th>TIME</th>
+            <th>CONTENT</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="LIST : ${BOOKLIST}">
+            <td th:text="${LIST.isbn}"></td>
+            <td th:text="${LIST.title}"></td>
+            <td th:text="${LIST.sdate}"></td>
+            <td th:text="${LIST.stime}"></td>
+            <td th:text="${LIST.etime}"></td>
+            <td th:text="${LIST.content}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <button class="write" type="button">WRITE</button>
+</section>
+
+</html>
+

@@ -1,0 +1,47 @@
+# Context Root
+server:
+  servlet:
+    context-path: /readbook
+spring:
+  mvc:
+    static-path-pattern: "/static/**"
+    view:
+      prefix: /WEB-INF/*
+      suffix: .html
+  web:
+    resources:
+      static-locations: "classpath:static/"
+      add-mappings: true
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    database: mysql
+    show-sql: true
+
+    # table 생성 정책
+    hibernate:
+      ddl-auto: update
+
+    # SQL Show pretty formatter 설정
+    properties:
+      hibernate:
+        format_sql: true
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/naraDB
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: tdUser
+    password: tdUser
+  devtools:
+    livereload:
+      enabled: true
+  freemarker:
+    cache: false
+
+logging:
+  level:
+    root: info
+    com.callor.readbook: debug
+
+
+
+
